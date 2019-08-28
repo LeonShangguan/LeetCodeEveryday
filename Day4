@@ -1,0 +1,52 @@
+# https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+# Java Version
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] rst = new int[nums1.length + nums2.length];
+        int indexRst=0, indexNum1=0, indexNum2=0;
+        double result=0.0;
+        for(; indexRst<rst.length; indexRst++){
+            if(indexNum1>(nums1.length-1)){
+                rst[indexRst] = nums2[indexNum2];
+                indexNum2++;
+                continue;
+            }
+            
+            if(indexNum2>(nums2.length-1)){
+                rst[indexRst] = nums1[indexNum1];
+                indexNum1++;
+                continue;
+            }
+            
+            if(nums1[indexNum1]<nums2[indexNum2]){
+                rst[indexRst] = nums1[indexNum1];
+                indexNum1++;
+            }else{
+                rst[indexRst] = nums2[indexNum2];
+                indexNum2++;
+            }
+        }
+        if((rst.length%2)==1){
+            result = rst[rst.length/2];
+        }else{
+            result = (rst[rst.length/2-1]+rst[rst.length/2])/2.0;
+        }
+        
+        return result;
+    }
+}
+
+# Python Version
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        new = []
+        for x in nums1:
+            new.append(x)
+        for y in nums2:
+            new.append(y)
+        new.sort()
+        index = int(len(new)/2)
+        if(len(new)%2==0):
+            return (new[index]+new[index-1])/2
+        return new[index]
