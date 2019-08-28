@@ -1,0 +1,33 @@
+# https://leetcode.com/problems/palindrome-number
+
+# Java Version
+class Solution {
+    public int reverse(int x){
+        int result=0;
+        while(x!=0){
+            int y = x%10;
+            x = x/10;
+            result=result*10+y;
+        }
+        return result;
+    }
+    
+    public boolean isPalindrome(int x) {
+        if(x<0){
+            return false;
+        }else{
+            return x==reverse(x);
+        }
+    }
+}
+
+# Python Version
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x<0:
+            return False
+        else:
+            y = str(x)
+            flag = (y == y[::-1])
+            return flag
+        
