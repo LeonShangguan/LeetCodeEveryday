@@ -31,3 +31,25 @@ class Solution:
             flag = (y == y[::-1])
             return flag
         
+
+# https://leetcode.com/problems/roman-to-integer
+
+# Python Version
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        DICT = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+        index, result = 0, 0
+        
+        while(index<len(s)-1):
+            flag = (DICT[s[index]]<DICT[s[index+1]])
+            if flag:
+                result += DICT[s[index+1]] - DICT[s[index]]
+                index += 2
+            else:
+                result += DICT[s[index]]
+                index += 1
+        print(index)
+        if(index<len(s)):
+            result += DICT[s[index]]
+        return result
+        
