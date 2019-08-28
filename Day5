@@ -34,6 +34,43 @@ class Solution:
 
 # https://leetcode.com/problems/roman-to-integer
 
+#Java Version
+class Solution {
+    public int dict(char c){
+        int m=0;
+        switch(c){
+            case 'I': m=1; break;
+            case 'V': m=5; break;
+            case 'X': m=10; break;
+            case 'L': m=50; break;
+            case 'C': m=100; break;
+            case 'D': m=500; break;
+            case 'M': m=1000; break;
+            default: m=0;
+        }
+        return m;
+    }
+    
+    public int romanToInt(String s) {
+        int result=0;
+        int i=0;
+        
+        for(; i<s.length()-1; i++){
+            if(dict(s.charAt(i))<dict(s.charAt(i+1))){
+                result += dict(s.charAt(i+1)) - dict(s.charAt(i));
+                i++;
+            }else{
+                result += dict(s.charAt(i));
+            }
+        }
+        if(i==s.length()-1){
+            result += dict(s.charAt(i));
+        }
+        return result;
+    }
+}
+
+
 # Python Version
 class Solution:
     def romanToInt(self, s: str) -> int:
