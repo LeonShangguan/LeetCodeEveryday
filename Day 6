@@ -1,0 +1,32 @@
+# https://leetcode.com/problems/remove-duplicates-from-sorted-array
+
+# Java Version
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int result=0;
+        
+        for(int i=0; i<nums.length-1; i++){
+            if(nums[i]!=nums[i+1]){
+                nums[result] = nums[i];
+                result ++;
+                nums[result] = nums[i+1];
+            }
+        }
+        return result+1;
+    }
+}
+
+# Python Version
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:        
+        result = 0
+
+        for i in range(len(nums)-1):
+            if(nums[i]==nums[i+1]):
+                continue
+            else:
+                nums[result]=nums[i]
+                result += 1
+                nums[result]=nums[i+1]
+
+        return result+1
