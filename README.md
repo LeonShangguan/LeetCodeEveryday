@@ -1,8 +1,8 @@
 # LeetCodeEveryday
 leetcode everyday.<br>
 Day 1: Easy;<br>
-Day 2: Medium;
-Day 3: Easy;
-Day 4: Hard;
-Day 5: Easy;
-Day 6: Tags Array; Easy * 1;
+Day 2: Medium;<br>
+Day 3: Easy;<br>
+Day 4: Hard;<br>
+Day 5: Easy;<br>
+Day 6: Tags Array; Easy * 1;<br>
