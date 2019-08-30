@@ -102,3 +102,33 @@ class Solution {
 }
 
 
+# https://leetcode.com/problems/3sum/
+
+# Python Version, Time Limit Exceeded, O(n3)
+class Solution:
+    
+    def twoSum(self, nums: List[int], target: int):
+        result = []
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if((nums[i]+nums[j])==target):
+                    result.append([nums[i], nums[j]])
+        return result
+    
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        for i in range(len(nums)):
+            target = -nums[i]
+            tmp = self.twoSum(nums[i+1:], target)
+            for x in tmp:
+                x.append(nums[i])
+                x.sort()
+                result.append(x)
+            result.sort()
+        tmp = []
+        for x in result:
+            if x not in tmp:
+                tmp.append(x)
+        return tmp
+            
+
