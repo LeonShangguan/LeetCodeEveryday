@@ -67,3 +67,40 @@ class Solution {
            
 
 
+# https://leetcode.com/problems/plus-one/
+
+# Python Version
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        tmp = ''
+        rst = []
+        for x in digits:
+            tmp += str(x)
+        tmp = str(int(tmp)+1)
+        for x in tmp:
+            rst.append(int(x))
+        return rst
+        
+# Java Version
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int index=digits.length;
+        int carry=0;
+        
+        for(; index>0; index--){
+            carry = (digits[index-1]+1)/10;
+            digits[index-1] = (digits[index-1]+1)%10;
+            if(carry == 0){
+                return digits;
+            }
+        }
+        int []result = new int[digits.length+1];
+        result[0] = 1;
+        for(int i=0; i<digits.length; i++){
+            result[i+1]=digits[i];
+        }
+        return result;
+    }
+}
+
+
