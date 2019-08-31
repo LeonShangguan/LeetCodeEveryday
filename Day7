@@ -104,3 +104,38 @@ class Solution {
 }
 
 
+
+# https://leetcode.com/problems/merge-sorted-array
+
+# Python Version
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        rst = []
+        for i in range(m):
+            rst.append(nums1[i])
+        for i in range(n):
+            rst.append(nums2[i])
+        rst.sort()
+        for i in range(m+n):
+            nums1[i] = rst[i]
+            
+# Java Version
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        for(int i=m; i<(m+n); i++){
+            nums1[i]=nums2[i-m];
+        }
+        for(int i=m+n; i<nums1.length; i++){
+            nums1[i]=Integer.MAX_VALUE;
+        }
+        Arrays.sort(nums1);
+    }
+}
+
+
+
+
+
