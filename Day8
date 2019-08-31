@@ -1,0 +1,32 @@
+# https://leetcode.com/problems/pascals-triangle
+
+# Python Version
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        result=[]
+        before=[1]
+        for i in range(numRows):
+            this = [1]*(i+1)
+            for j in range(1,i):
+                this[j] = before[j-1]+before[j]
+            result.append(this)
+            before = this
+        return result
+            
+
+
+
+
+
+
+# https://leetcode.com/problems/pascals-triangle-ii/
+
+# Python Version
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        for i in range(rowIndex+1):
+            this = [1]*(i+1)
+            for j in range(1,i):
+                this[j] = before[j-1]+before[j]
+            before = this
+        return this
