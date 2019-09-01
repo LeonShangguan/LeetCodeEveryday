@@ -13,7 +13,7 @@ class Solution:
             before = this
         return result
             
-
+# Java Version
 
 
 
@@ -30,9 +30,14 @@ class Solution:
                 this[j] = before[j-1]+before[j]
             before = this
         return this
+       
+# Java Version
+
 
 
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+# Python Version
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         i, j = 0, len(numbers)-1
@@ -44,8 +49,12 @@ class Solution:
             else:
                 return [i+1, j+1]
 
+# Java Version
+
 
 # https://leetcode.com/problems/sort-colors/
+
+#Python Version
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
@@ -64,5 +73,31 @@ class Solution:
         for i in range(num_0+num_1, len(nums)):
             nums[i]=2
 
-
+# Java Version
+class Solution {
+    public void swap(int[] list, int m, int n){
+        int tmp;
+        // System.out.println(m);
+        tmp = list[m];
+        list[m] = list[n];
+        list[n] = tmp;
+    }
+    
+    public void sortColors(int[] nums) {
+        int l=0, r=nums.length-1;
+        int index=0;
+        while(index <= r){
+            if(nums[index]==0){
+                swap(nums, index, l);
+                index++;
+                l++;
+            }else if(nums[index]==2){
+                swap(nums, index, r);
+                r--;
+            }else{
+                index++;
+            }
+        }
+    }
+}
 
