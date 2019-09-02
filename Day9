@@ -1,0 +1,22 @@
+# https://leetcode.com/problems/majority-element
+
+# Python Version
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        if(len(nums)==1):
+            return nums[0]
+        nums.sort()
+        tmp=1
+        for i in range(len(nums)-1):
+            if(nums[i]==nums[i+1]):
+                tmp+=1
+            else:
+                tmp = 1
+            if tmp > int(len(nums)/2):
+                return nums[i]
+
+
+
+
+
+
