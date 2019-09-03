@@ -42,7 +42,8 @@ class Solution:
 
 
 
-# https://leetcode.com/problems/array-partition-i/submissions/
+# https://leetcode.com/problems/array-partition-i/
+
 # Python Version
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
