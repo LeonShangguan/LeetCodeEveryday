@@ -122,4 +122,38 @@ class Solution {
 
 
 
+# https://leetcode.com/problems/max-consecutive-ones/
 
+# Python Version
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        result = 0
+        rst = []
+        for x in nums:
+            if(x==1):
+                result += 1
+            else:
+                rst.append(result)
+                result = 0
+        if(nums[-1]==1):
+            rst.append(result)
+        return max(rst)
+
+# Java Version
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int result=0, tmp=0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]==1){
+                tmp++;
+            }else{
+                if(tmp>result){
+                    result=tmp;
+                }
+                tmp=0;
+            }
+        }
+        if(tmp>result){result=tmp;}
+        return result;
+    }
+}
