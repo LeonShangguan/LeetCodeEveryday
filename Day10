@@ -63,6 +63,28 @@ class Solution:
         
         
 
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+# Python Version, Time Limit Exceed
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        result =0
+        for i in range(len(prices)):
+            for j in range(i+1, len(prices)):
+                result = max(result, prices[j]-prices[i])
+        return result
+        
+# Still Time Limit Exceed
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        result =0
+        for i in range(len(prices)-1):
+            minimus = max(prices[i+1:])
+            result = max(result, minimus-prices[i])
+        return result
+
+
+
 
 
 
