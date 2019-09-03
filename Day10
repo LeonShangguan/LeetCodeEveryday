@@ -79,11 +79,31 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         result =0
         for i in range(len(prices)-1):
-            minimus = max(prices[i+1:])
-            result = max(result, minimus-prices[i])
+            result = max(result, prices[i]-min(prices[0:i]))
         return result
 
-
+# Java Version, Pass
+class Solution {
+    public static int maxValue(int[] nums, int start){
+        int maxValue=0;
+        for(int i=start; i<nums.length; i++){
+            if(nums[i]>maxValue){
+                maxValue = nums[i];
+            }
+        }
+        return maxValue;
+    }
+    
+    public int maxProfit(int[] prices) {
+        int result=0;
+        for(int i=0; i<prices.length; i++){
+            if((maxValue(prices, i+1)-prices[i])>result){
+                result = maxValue(prices, i+1)-prices[i];
+            }
+        }
+        return result;
+    }
+}
 
 
 
