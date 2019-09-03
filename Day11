@@ -41,3 +41,14 @@ class Solution:
         return self.fib(N-1)+self.fib(N-2)
 
 
+
+# https://leetcode.com/problems/array-partition-i/submissions/
+# Python Version
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        result = 0
+        nums.sort()
+        for i in range(int(len(nums)/2)):
+            result += nums[2*i]
+        return result
+
