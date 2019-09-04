@@ -14,6 +14,22 @@ class Solution:
             result.append(num[i*c: (i+1)*c])
         return result
 
-
+# Java Version
+class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int len = nums.length*nums[0].length;
+        int[][] result = new int[r][c];
+        if(r*c != len){
+            return nums;
+        }else{
+            for(int i=0; i<r; i++){
+                for(int j=0; j<c; j++){
+                    result[i][j] = nums[(i*c+j)/nums[0].length][(i*c+j)%nums[0].length];
+                }
+            }
+        }
+        return result;
+    }
+}
 
 
