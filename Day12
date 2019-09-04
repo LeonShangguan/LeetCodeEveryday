@@ -1,0 +1,19 @@
+# https://leetcode.com/problems/reshape-the-matrix/
+
+# Pyhton Version
+class Solution:
+    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
+        num = []
+        result = []
+        for x in nums:
+            for y in x:
+                num.append(y)
+        if(len(num)!=r*c):
+            return nums
+        for i in range(r):
+            result.append(num[i*c: (i+1)*c])
+        return result
+
+
+
+
