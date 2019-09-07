@@ -1,0 +1,64 @@
+# https://leetcode.com/problems/image-smoother/
+
+# Java Version
+class Solution {
+    public int[][] imageSmoother(int[][] M) {
+        int cols=M.length, rows=M[0].length;
+        int[][] result = new int[cols][rows];
+        
+        for(int i=0; i<cols; i++){
+            for(int j=0; j<rows; j++){
+                int count=0;
+                // result[i][j] = M[i][j];
+                for(int m=i-1; m<=i+1; m++){
+                    for(int n=j-1; n<=j+1; n++){
+                        if(m>=0 && m<cols && n>=0 && n<rows){
+                            count++;
+                            result[i][j] += M[m][n];
+                        }
+                    }
+                }
+                result[i][j] /= count;
+            }
+        }
+        return result;
+    }
+}
+
+
+
+# https://leetcode.com/problems/single-number/
+
+# Java Version
+class Solution {
+    public int singleNumber(int[] nums) {
+        int result = nums[0];
+        for(int i=1; i<nums.length; i++){
+            result = result^nums[i];
+        }
+        return result;
+    }
+}
+
+
+
+# https://leetcode.com/problems/delete-node-in-a-linked-list/
+
+# Java Version
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+
+
+
