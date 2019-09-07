@@ -1,0 +1,29 @@
+# https://leetcode.com/problems/power-of-two/
+
+# Java Version
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if(n<1){
+            return false;
+        }
+        while(n/2 != 0){
+            if(n%2 != 0){
+                return false;
+            }
+            n = n/2;
+        }
+        return true;
+    }
+}
+
+# Python Version
+import math
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if(n<=0):
+            return False
+        while(n != 1):
+            if(n%2 != 0):
+                return False
+            n = math.floor(n/2)
+        return True
