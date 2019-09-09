@@ -1,0 +1,42 @@
+# https://leetcode.com/problems/distribute-candies-to-people/
+
+# Python Version
+class Solution:
+    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+        result = [0 for i in range(num_people)]
+        n, total = 1, 0
+        index = 0
+        while(total<candies):
+            if(candies-total < n):
+                result[index] += candies-total
+            else:
+                result[index] += n
+            total += n
+            n += 1
+            index = (index+1)%num_people
+        return result
+
+# Java Version
+class Solution {
+    public int[] distributeCandies(int candies, int num_people) {
+        int n=1, sum=0;
+        int[] result = new int[num_people];
+        while(sum<candies){
+            if(candies-sum > n){
+                result[(n-1)%num_people] += n;
+            }else{
+                result[(n-1)%num_people] += candies-sum;
+            }
+            sum += n++;
+        }
+        return result;
+    }
+}
+
+
+
+
+
+
+
+
