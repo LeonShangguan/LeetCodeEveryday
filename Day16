@@ -1,4 +1,4 @@
-https://leetcode.com/problems/shortest-unsorted-continuous-subarray/
+# https://leetcode.com/problems/shortest-unsorted-continuous-subarray/
 
 # Java Version
 class Solution {
@@ -22,3 +22,21 @@ class Solution {
         return result;
     }
 }
+
+
+
+# https://leetcode.com/problems/maximum-subarray/
+
+#Java Version
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int curMax=0;
+        int tolMax=Integer.MIN_VALUE;
+        for(int num:nums){
+            curMax = Math.max(curMax+num, num);
+            tolMax = Math.max(curMax, tolMax);
+        }
+        return tolMax;
+    }
+}
+
